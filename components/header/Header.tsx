@@ -57,7 +57,7 @@ const Header = () => {
         </Box>
         <Box className="header-btns">
           <Box>
-          <Link href="/login" className="header-link">
+          <Link href="/signin" className="header-link">
             <Button
               variant="text"
               className="header-login-btn"
