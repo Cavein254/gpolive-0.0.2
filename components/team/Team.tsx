@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
+import Image from 'next/image';
 import { BsFacebook, BsTwitter, BsWhatsapp } from 'react-icons/bs';
 import './styles.css';
 import { TeamData } from './teamdata';
@@ -9,7 +10,7 @@ const Team = () => {
       <Box className="team-container" key={team.id}>
         <Box className="team-details">
           <Box className="team-img-container">
-            <img src={team.url} alt="user" className="team-image" />
+            <Image height = {300} width={300}src={team.url} alt="user" className="team-image" />
           </Box>
           <Box
             sx={{
