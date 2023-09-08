@@ -23,9 +23,9 @@ const Header = () => {
   const linkNavs = HeaderLinks.map((link) => {
     return (
       <span key={link.id} className="header-links">
-        <a href={link.path} className="header-link">
+        <Link href={link.path} className="header-link">
           {link.name}
-        </a>
+        </Link>
       </span>
     );
   });

@@ -1,7 +1,6 @@
 "use client"
 import Header from '@/components/header/Header'
 import type { Metadata } from 'next'
-import './globals.css'
 
 
 const metadata: Metadata = {
@@ -16,8 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Header />
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        </body>
     </html>
   )
 }

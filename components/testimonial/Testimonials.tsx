@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import Image from 'next/image';
 import './styles.css';
 import { TestimonialData } from './testmonydata';
 
@@ -9,7 +8,7 @@ const Testimonials = () => {
       <Box className="testimonial-item" key={item.id} id="testimonials">
         <Box>
           <Box className="testimonial-img-container">
-            <Image height={300} width={300} className="testimonial-img" alt={item.name} src={item.url} />
+            <img className="testimonial-img" alt={item.name} src={item.url} />
           </Box>
         </Box>
         <Box className="testimonial-text-container">

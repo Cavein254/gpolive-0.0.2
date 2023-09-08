@@ -2,7 +2,6 @@ import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import Image from 'next/image';
 import Link from 'next/link';
-import HeroImg from '../../assets/hero.jpg';
 import './style.css';
 
 const Hero = () => {
@@ -48,7 +47,7 @@ const Hero = () => {
         </Box>
       </Box>
       <Box className="hero-img-container">
-        <Image height={300} width={300} src={HeroImg} alt="Hero" className="hero-img" />
+        <Image height={300} width={300} src="/images/hero.jpg" alt="Hero" className="hero-img" />
       </Box>
     </Box>
   );
