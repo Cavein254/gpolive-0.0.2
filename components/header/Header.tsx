@@ -1,7 +1,6 @@
-"use client"
 import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import Link from 'next/navigation';
+import Link from 'next/link';
 import { useState } from 'react';
 import { BsFan } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -56,7 +55,7 @@ const Header = () => {
           <Box className="header-links-wrapper">{linkNavs}</Box>
         </Box>
         <Box className="header-btns">
-          <Link to="/login" className="header-link">
+          <Link href="/login" className="header-link">
             <Button
               variant="text"
               className="header-login-btn"
@@ -68,7 +67,7 @@ const Header = () => {
               Log In
             </Button>
           </Link>
-          <Link to="/register" className="header-link">
+          <Link href="/register" className="header-link">
             <StyledSignUp variant="contained">Sign Up</StyledSignUp>
           </Link>
         </Box>
@@ -78,3 +77,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
