@@ -42,6 +42,11 @@
     visibility: visible;
     display: block;
   }
+  .header-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 @media only screen and (min-width: 801px) {
   .header-details {
@@ -94,5 +99,10 @@
   .header-login-btn {
     visibility: visible;
     display: block;
+  }
+  .header-btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }

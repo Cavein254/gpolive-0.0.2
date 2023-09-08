@@ -1,6 +1,7 @@
 import { Button, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { Link } from 'react-router-dom';
+import Image from 'next/image';
+import Link from 'next/link';
 import HeroImg from '../../assets/hero.jpg';
 import './style.css';
 
@@ -31,7 +32,7 @@ const Hero = () => {
           </Typography>
         </Box>
         <Box>
-          <Link to="#services">
+          <Link href="#services">
             <Button
               variant="contained"
               sx={{
@@ -47,7 +48,7 @@ const Hero = () => {
         </Box>
       </Box>
       <Box className="hero-img-container">
-        <img src={HeroImg} alt="Hero" className="hero-img" />
+        <Image height={300} width={300} src={HeroImg} alt="Hero" className="hero-img" />
       </Box>
     </Box>
   );

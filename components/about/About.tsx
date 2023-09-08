@@ -1,4 +1,5 @@
 import { Box, Typography } from '@mui/material';
+import Image from 'next/image';
 import AboutImg from '../../assets/working.jpg';
 import './styles.css';
 const About = () => {
@@ -48,7 +49,7 @@ const About = () => {
           </Typography>
         </Box>
         <Box className="about-us-img-container">
-          <img src={AboutImg} alt="aboutus" className="about-us-img" />
+          <Image height={300} width={300}  src={AboutImg} alt="aboutus" className="about-us-img" />
         </Box>
       </Box>
     </Box>

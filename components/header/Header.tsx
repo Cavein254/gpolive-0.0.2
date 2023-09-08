@@ -1,3 +1,4 @@
+"use client"
 import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Link from 'next/link';
@@ -55,6 +56,7 @@ const Header = () => {
           <Box className="header-links-wrapper">{linkNavs}</Box>
         </Box>
         <Box className="header-btns">
+          <Box>
           <Link href="/login" className="header-link">
             <Button
               variant="text"
@@ -67,9 +69,12 @@ const Header = () => {
               Log In
             </Button>
           </Link>
+          </Box>
+          <Box>
           <Link href="/register" className="header-link">
             <StyledSignUp variant="contained">Sign Up</StyledSignUp>
           </Link>
+          </Box>
         </Box>
       </Box>
     </Box>

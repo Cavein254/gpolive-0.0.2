@@ -1,3 +1,4 @@
+"use client"
 import { Box, Stack } from '@mui/system';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { BsFan } from 'react-icons/bs';
