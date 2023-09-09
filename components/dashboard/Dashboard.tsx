@@ -1,4 +1,4 @@
-import Job from "./Job"
+import Job from "./job/Job"
 
 const Dashboard = () => {
   return (
