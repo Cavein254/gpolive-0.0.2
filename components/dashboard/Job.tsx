@@ -1,7 +1,10 @@
+import SearchOverlay from "../searchoverlay/SearchOverlay"
 
 const Job = () => {
   return (
-    <div>Job</div>
+    <div>
+        <SearchOverlay/>
+    </div>
   )
 }
 
