@@ -1,7 +1,8 @@
+import Job from "./Job"
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <Job />
   )
 }
 
