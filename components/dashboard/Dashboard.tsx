@@ -4,6 +4,46 @@ import Job from "./job/Job"
 import './styles.css'
 
 const Dashboard = () => {
+  const jobStats = [
+    {
+      id:1,
+      jobType:'Remote Jobs',
+      stat: 80
+    },
+    {
+      id:2,
+      jobType:'Hybrid Jobs',
+      stat: 67
+    },
+    {
+      id:3,
+      jobType:'Onsite Jobs',
+      stat: 100
+    },
+  ]
+  const allStats = jobStats.map((job) => {
+    return (
+      <Card className="dashboard-remote" key={job.id} sx={{
+          fontSize:'1.4rem',
+          color:'#fff',
+          padding:'1rem 2rem',
+          backgroundColor:'#F37C0C'
+      }}>
+        <Typography variant='h4'
+        sx = {{
+          fontFamily:'Raleway',
+          fontWeight:'900',
+          fontSize:'1rem',
+        }}
+        >{job.jobType}</Typography>
+        <Typography variant='h5' sx={{
+          fontFamily:'Raleway',
+          fontWeight:'300',
+          fontSize:'1.4rem'
+        }}>{job.stat}</Typography>
+    </Card>
+    )
+  }) 
   return (
     <>
     <Box>
@@ -19,40 +59,44 @@ const Dashboard = () => {
           <Typography variant='h5' sx={{
             fontFamily:'Raleway',
             fontWeight:'300',
-            fontSize:'1.4rem'
           }}>
             Search the various jobs that our site has to offer.
           </Typography>
         </Box>
         <Box className="dashboard-category">
-          <Card className="dashboard-remote">
-            <Typography variant='h1'>Remote Jobs</Typography>
-            <Typography variant='h5'>100 Jobs</Typography>
-          </Card>
-          <Card className="dashboard-hybrid">
-            <Typography variant='h1'>Hybrid Jobs</Typography>
-            <Typography variant='h5'>120 Jobs</Typography>
-          </Card>
-          <Card className="dashboard-site">
-            <Typography variant='h1'>onsite Jobs</Typography>
-            <Typography variant='h5'>50 Jobs</Typography>
-          </Card>
+          {allStats}
         </Box>
         <Box>
-          <Box className="job-filter-item">
+          <Box className="dashboard-filter">
             <Box >
-              <Typography variant='h4'>JOBS</Typography>
+              <Typography variant='h4' sx={{
+                fontFamily:'Raleway',
+                fontSize:'1rem',
+                fontWeight:'300'
+              }}>JOBS</Typography>
             </Box>
             <Box>
               <AiFillFilter />
-              <Typography variant="h6">Filter By</Typography>
+              <Typography variant="h6" sx={{
+                fontFamily:'Raleway',
+                fontSize:'1rem',
+                fontWeight:'300',
+                color:'#A9A9A9'
+              }}>Filter By</Typography>
             </Box>
           </Box>
           <Box>
-            <Typography variant="h6">78 Jobs Found</Typography>
+            <Typography variant="h6" sx={{
+              fontFamily:'Raleway',
+              fontSize:'.8rem',
+              fontWeight:'900',
+            }}>78 Jobs Found</Typography>
           </Box>
         </Box>
       </Box>
+      <Job />
+      <Job />
+      <Job />
       <Job />
     </Box>
     </>

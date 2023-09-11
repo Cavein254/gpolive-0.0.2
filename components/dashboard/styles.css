@@ -3,13 +3,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .dashboard-category {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 .dashboard-remote {
-    
+    width: 80%;
+    margin-bottom: .5rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.dashboard-filter {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
