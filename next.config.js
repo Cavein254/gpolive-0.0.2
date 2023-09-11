@@ -11,9 +11,6 @@ const nextConfig = {
         // !! WARN !!
         ignoreBuildErrors: true,
       },
-      images: {
-        unoptimized: true
-    },
     images: {
         remotePatterns: [
           {
@@ -25,6 +22,7 @@ const nextConfig = {
             hostname: 'plus.unsplash.com',
           },
         ],
+        unoptimized: true
       },
 }
 
