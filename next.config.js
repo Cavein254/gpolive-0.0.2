@@ -13,7 +13,6 @@ const nextConfig = {
       images: {
         unoptimized: true
     },
-    distDir: 'dist',
     images: {
         remotePatterns: [
           {
