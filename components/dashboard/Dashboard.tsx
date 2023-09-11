@@ -1,33 +1,42 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Card, Typography } from "@mui/material"
 import { AiFillFilter } from "react-icons/ai"
 import Job from "./job/Job"
+import './styles.css'
 
 const Dashboard = () => {
   return (
     <>
     <Box>
       <Box className="job-header">
-        <Box>
-          <Typography variant='h1'>
+        <Box className="dashboard-text">
+          <Typography variant='h1' sx={{
+            fontFamily:'Raleway',
+            fontWeight:'900',
+            fontSize:'2rem'
+          }}>
             Browse Available Jobs
           </Typography>
-          <Typography variant='h5'>
+          <Typography variant='h5' sx={{
+            fontFamily:'Raleway',
+            fontWeight:'300',
+            fontSize:'1.4rem'
+          }}>
             Search the various jobs that our site has to offer.
           </Typography>
         </Box>
-        <Box>
-          <Box>
+        <Box className="dashboard-category">
+          <Card className="dashboard-remote">
             <Typography variant='h1'>Remote Jobs</Typography>
             <Typography variant='h5'>100 Jobs</Typography>
-          </Box>
-          <Box>
+          </Card>
+          <Card className="dashboard-hybrid">
             <Typography variant='h1'>Hybrid Jobs</Typography>
             <Typography variant='h5'>120 Jobs</Typography>
-          </Box>
-          <Box>
+          </Card>
+          <Card className="dashboard-site">
             <Typography variant='h1'>onsite Jobs</Typography>
             <Typography variant='h5'>50 Jobs</Typography>
-          </Box>
+          </Card>
         </Box>
         <Box>
           <Box className="job-filter-item">

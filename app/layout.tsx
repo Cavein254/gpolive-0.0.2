@@ -1,6 +1,7 @@
 "use client"
 import Header from '@/components/header/Header'
 import type { Metadata } from 'next'
+import './globals.css'
 
 
 const metadata: Metadata = {
