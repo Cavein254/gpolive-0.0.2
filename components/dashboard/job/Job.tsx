@@ -17,8 +17,8 @@ const Job = () => {
         <Box>
           <GiAbstract034  className='job-icon'/>
         </Box>
-        <Box>
-          <Typography variant="h4">DevOps Engineer</Typography>
+        <Box className='job-card-text'>
+          <Typography variant="h4">German Speaking Call Centre Agents</Typography>
           <Typography variant="h6">Onsite - Nairobi</Typography>
         </Box>
       </Box>
