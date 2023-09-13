@@ -23,7 +23,10 @@
     justify-content: space-between;
     align-items: center;
 }
-
+.dashboard-search {
+    display: none;
+    visibility: hidden;
+}
 
 @media only screen and (min-width: 641px) {
     .dashboard-main {

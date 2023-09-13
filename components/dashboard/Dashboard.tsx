@@ -106,10 +106,12 @@ const Dashboard = () => {
             <SearchOverlay />
           </Box>
           <Box className="dashboard-jobs">
-            <Job />
-            <Job />
-            <Job />
-            <Job />
+            <Box className="dashboard-job-list">
+              <Job />
+              <Job />
+              <Job />
+              <Job />
+            </Box>
           </Box>
       </Box>
     </Box>
