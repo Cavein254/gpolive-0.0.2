@@ -6,7 +6,7 @@ import { TeamData } from './teamdata';
 const Team = () => {
   const teams = TeamData.map((team) => {
     return (
-      <Box className="team-container" key={team.id}>
+      <Box className="team-container" key={team.id} id="contact">
         <Box className="team-details">
           <Box className="team-img-container">
             <img src={team.url} alt="user" className="team-image" />
