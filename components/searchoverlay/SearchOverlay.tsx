@@ -1,9 +1,14 @@
 'use client'
-import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Typography } from "@mui/material"
+import Input from '@mui/joy/Input'
+import { Box, Button, Card, Checkbox, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Typography } from "@mui/material"
 import { useState } from "react"
 import { AiOutlineFileWord } from 'react-icons/ai'
 import { BiRecycle } from "react-icons/bi"
+import { BsPersonWorkspace } from "react-icons/bs"
+import { FaIndustry } from "react-icons/fa"
 import { GiWorld } from "react-icons/gi"
+import { GrWorkshop } from "react-icons/gr"
+import { MdOutlineSettingsRemote } from "react-icons/md"
 import './styles.css'
 
 const SearchOverlay = () => {
@@ -13,7 +18,7 @@ const SearchOverlay = () => {
         setAge(e.target.value);
     }
   return (
-    <Box>
+    <Card>
         <form>
             <Box className="searchova">
                 <Box>
@@ -27,17 +32,17 @@ const SearchOverlay = () => {
                     </Box>
                     <Box>
                         <Box>
-                            <Box>
-                                <AiOutlineFileWord />
+                            <Box className="searchova-input">
+                                <AiOutlineFileWord className="searchova-input-icon"/>
                                 <Typography variant='h5'>Keyword</Typography>
                             </Box>
                             <Box>
-                                <input type="text" placeholder="Search"/>
+                                <Input color="neutral" variant="outlined" placeholder="Search"/>
                             </Box>
                         </Box>
                         <Box>
-                            <Box>
-                                <GiWorld />
+                            <Box className="searchova-input">
+                                <GiWorld className="searchova-input-icon"/>
                                 <Typography variant='h5'>Location type</Typography>
                             </Box>
                             <Box>
@@ -49,8 +54,8 @@ const SearchOverlay = () => {
                             </Box>
                         </Box>
                         <Box>
-                            <Box>
-                                <GiWorld />
+                            <Box className="searchova-input">
+                                <MdOutlineSettingsRemote className="searchova-input-icon"/>
                                 <Typography variant='h5'>Location</Typography>
                             </Box>
                             <Box>
@@ -71,8 +76,8 @@ const SearchOverlay = () => {
                             </Box>
                         </Box>
                         <Box>
-                            <Box>
-                                <GiWorld />
+                            <Box className="searchova-input">
+                                <FaIndustry className="searchova-input-icon"/>
                                 <Typography variant='h5'>Industry</Typography>
                             </Box>
                             <Box>
@@ -89,29 +94,31 @@ const SearchOverlay = () => {
                             </Box>
                         </Box>
                         <Box>
-                            <Box>
-                                <GiWorld />
+                            <Box className="searchova-input">
+                                <GrWorkshop className="searchova-input-icon"/>
                                 <Typography variant='h5'>Job Type</Typography>
                             </Box>
                             <Box>
-                                <FormControlLabel control={<Checkbox />} label="Permanent" />
-                                <FormControlLabel control={<Checkbox />} label="Temporary" />
-                                <FormControlLabel control={<Checkbox />} label="Contract" />
-                                <FormControlLabel control={<Checkbox />} label="Internship" />
+                               <FormGroup>
+                                    <FormControlLabel control={<Checkbox />} label="Permanent" />
+                                    <FormControlLabel control={<Checkbox />} label="Temporary" />
+                                    <FormControlLabel control={<Checkbox />} label="Contract" />
+                                    <FormControlLabel control={<Checkbox />} label="Internship" />
+                               </FormGroup>
                             </Box>
                         </Box>
                         <Box>
-                            <Box>
-                                <GiWorld />
+                            <Box className="searchova-input">
+                                <BsPersonWorkspace className="searchova-input-icon"/>
                                 <Typography variant='h5'>Job Engagement</Typography>
                             </Box>
                             <Box>
-                                <FormControlLabel control={<Checkbox />} label="Full Time" />
-                                <FormControlLabel control={<Checkbox />} label="Part Time" />
-                                
+                                <FormGroup>
+                                    <FormControlLabel control={<Checkbox />} label="Full Time" />
+                                    <FormControlLabel control={<Checkbox />} label="Part Time" />
+                                </FormGroup>                                
                             </Box>
                         </Box>
-
                     </Box>
                 </Box>
                 <Box>
@@ -121,7 +128,7 @@ const SearchOverlay = () => {
                 </Box>
             </Box>
         </form>
-    </Box>
+    </Card>
   )
 }
 

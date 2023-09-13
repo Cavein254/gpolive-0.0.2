@@ -23,3 +23,20 @@
     justify-content: space-between;
     align-items: center;
 }
+.dashboard-search {
+    display: none;
+    visibility: hidden;
+}
+
+@media only screen and (min-width: 641px) {
+    .dashboard-main {
+        display: flex;
+        flex-direction: row;
+        background-color: red;
+        padding:1rem;
+    }
+    .dashboard-jobs{
+        background-color: green;
+        margin-left:1rem;
+    }
+  }

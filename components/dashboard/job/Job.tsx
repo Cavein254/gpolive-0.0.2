@@ -8,7 +8,8 @@ import './styles.css'
 const Job = () => {
   return (
     <Card sx={{
-      boxShadow:2
+      boxShadow:2,
+      width:'100%'
     }} className="job-main-card">
       <Box className="job-whole-wrapper">
      <Box className='job-header-wrapper'>

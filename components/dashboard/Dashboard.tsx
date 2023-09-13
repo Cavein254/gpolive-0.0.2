@@ -1,5 +1,6 @@
 import { Box, Card, Typography } from "@mui/material"
 import { AiFillFilter } from "react-icons/ai"
+import SearchOverlay from "../searchoverlay/SearchOverlay"
 import Job from "./job/Job"
 import './styles.css'
 
@@ -47,6 +48,7 @@ const Dashboard = () => {
   return (
     <>
     <Box>
+      
       <Box className="job-header">
         <Box className="dashboard-text">
           <Typography variant='h1' sx={{
@@ -75,13 +77,18 @@ const Dashboard = () => {
                 fontWeight:'300'
               }}>JOBS</Typography>
             </Box>
-            <Box>
+            <Box sx={{
+              display:'flex',
+              flexDirection:'row',
+              alignItems:'center'
+            }}>
               <AiFillFilter />
               <Typography variant="h6" sx={{
                 fontFamily:'Raleway',
                 fontSize:'1rem',
                 fontWeight:'300',
-                color:'#A9A9A9'
+                color:'#A9A9A9',
+                marginLeft:'.5rem'
               }}>Filter By</Typography>
             </Box>
           </Box>
@@ -94,10 +101,17 @@ const Dashboard = () => {
           </Box>
         </Box>
       </Box>
-      <Job />
-      <Job />
-      <Job />
-      <Job />
+        <Box className="dashboard-main">
+          <Box className="dashboard-search">
+            <SearchOverlay />
+          </Box>
+          <Box className="dashboard-jobs">
+            <Job />
+            <Job />
+            <Job />
+            <Job />
+          </Box>
+      </Box>
     </Box>
     </>
   )
