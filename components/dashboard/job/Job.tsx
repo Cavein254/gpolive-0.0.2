@@ -1,4 +1,4 @@
-import { Box, Button, Card, Typography } from "@mui/material"
+import { Box, Button, Typography } from "@mui/material"
 import { AiOutlineFieldNumber } from "react-icons/ai"
 import { BiMoneyWithdraw, BiTime } from "react-icons/bi"
 import { BsFillArrowRightCircleFill } from "react-icons/bs"
@@ -7,7 +7,7 @@ import './styles.css'
 
 const Job = () => {
   return (
-    <Card sx={{
+    <Box sx={{
       boxShadow:2,
       width:'100%'
     }} className="job-main-card">
@@ -56,7 +56,7 @@ const Job = () => {
         </Box>
      </Box>
      </Box>
-    </Card>
+    </Box>
   )
 }
 
