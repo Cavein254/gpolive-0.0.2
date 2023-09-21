@@ -3,8 +3,10 @@
 import { Box, Button, TextField, Typography, styled } from '@mui/material';
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import './styles.css';
 
 const CustomTextField = styled(TextField)({
@@ -106,23 +108,44 @@ const SignIn = () => {
             )}
           </div>
           <form onSubmit={handleSubmit(onSubmit)}>
-          
             <div>
-              <Box className="main-box">
-                <Box>
-                <Image
-                  width={400}
-                  height={200}
-                  priority={true}
-                  alt="login"
-                  src="https://static.vecteezy.com/system/resources/previews/010/930/001/non_2x/google-logo-icon-illustration-free-vector.jpg"
-                  className="google-img"
-          />
-                </Box>
-                <Button variant="contained">
-                  SignIn with Google
+              <div>
+                <CustomTextField
+                  variant="outlined"
+                  fullWidth
+                  type="email"
+                  placeholder="aries@gmail.com"
+                  {...register('email', {
+                    required: 'You need to provide an email',
+                  })}
+                  error={!!errors.email}
+                  helperText={errors.email?.message}
+                />
+              </div>
+              <div>
+                <CustomTextField
+                  type="password"
+                  placeholder="password"
+                  {...register('password', {
+                    required: 'You need to provide password',
+                  })}
+                  error={!!errors.password}
+                  helperText={errors.password?.message}
+                />
+              </div>
+              <div className="auth-btn-container">
+                <Button variant="contained" type="submit">
+                  Login <BsFillArrowRightCircleFill className="auth-btn-icon" />
                 </Button>
-              </Box>
+                <Button variant="contained" type="submit" onClick={() => signIn('google')}>
+                  Google <BsFillArrowRightCircleFill className="auth-btn-icon" />
+                </Button>
+              </div>
+            </div>
+            <div>
+              <p>
+                Don't have an account? <Link href="/user/signup">Register</Link>
+              </p>
             </div>
           </form>
         </Box>

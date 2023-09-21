@@ -30,6 +30,15 @@
     font-size: 2rem;
     padding: 0.5rem 1rem;
   }
+  .google-img{
+  }
+  .main-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
   @media only screen and (min-width: 768px) {
     .auth {
       background-image: url('https://images.unsplash.com/photo-1618556450994-a6a128ef0d9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60');

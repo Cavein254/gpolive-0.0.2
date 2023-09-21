@@ -1,8 +1,8 @@
-import SignIn from '@/components/auth/SignIn'
+import SignUp from '@/components/auth/SignUp'
 
 const page = () => {
   return (
-    <SignIn />
+    < SignUp />
   )
 }
 
