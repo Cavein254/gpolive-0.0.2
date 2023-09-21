@@ -7,7 +7,7 @@ import Team from "@/components/team/Team";
 import Testimonials from "@/components/testimonial/Testimonials";
 import { Box } from "@mui/material";
 
-export default async function Home() {
+export default function Home() {
   return (
      <Box
       sx={{
