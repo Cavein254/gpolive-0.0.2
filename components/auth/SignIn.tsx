@@ -137,6 +137,9 @@ const SignIn = () => {
                 <Button variant="contained" type="submit">
                   Login <BsFillArrowRightCircleFill className="auth-btn-icon" />
                 </Button>
+                <Button variant="contained" type="submit" onClick={() => signIn('google')}>
+                  Google <BsFillArrowRightCircleFill className="auth-btn-icon" />
+                </Button>
               </div>
             </div>
             <div>
