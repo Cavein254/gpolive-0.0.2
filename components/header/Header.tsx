@@ -20,8 +20,9 @@ const StyledSignUp = styled(Button)`
   }
 `;
 const Header = () => {
+
   const [isOpen, setIsOpen] = useState(false);
-  const {data:session} = useSession()
+  const {data:session} = useSession();
   console.log(session)
   const linkNavs = HeaderLinks.map((link) => {
     return (
