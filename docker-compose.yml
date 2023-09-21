@@ -12,4 +12,4 @@ services:
       - db:/data
 volumes:
   db:
-    driver: local-db
+    driver: local

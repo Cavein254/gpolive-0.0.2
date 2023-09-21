@@ -1,7 +1,9 @@
 "use client"
 import Header from '@/components/header/Header'
 import type { Metadata } from 'next'
+import { usePathname } from 'next/navigation'
 import './globals.css'
+import { Providers } from './provider'
 
 
 const metadata: Metadata = {
@@ -13,12 +15,17 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
-}) {
+}) 
+{
+const pathName = usePathname()
+
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
+        <Providers>
+        {pathName === '/signin'|| pathName==='/signup'?'':<Header />}
+          {children}
+        </Providers>
         </body>
     </html>
   )

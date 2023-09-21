@@ -1,6 +1,7 @@
 "use client"
 import { Box, Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { BsFan } from 'react-icons/bs';
@@ -19,7 +20,10 @@ const StyledSignUp = styled(Button)`
   }
 `;
 const Header = () => {
+
   const [isOpen, setIsOpen] = useState(false);
+  const {data:session} = useSession();
+  console.log(session)
   const linkNavs = HeaderLinks.map((link) => {
     return (
       <span key={link.id} className="header-links">
