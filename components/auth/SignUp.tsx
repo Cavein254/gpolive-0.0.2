@@ -131,36 +131,12 @@ const SignUp = () => {
                   variant="outlined"
                   fullWidth
                   type="text"
-                  placeholder="lastname"
+                  placeholder="last Name"
                   {...register('lastName', {
                     required: 'You need to last name',
                   })}
                   error={!!errors.email}
                   helperText={errors.email?.message}
-                />
-              </div>
-              <div>
-                <CustomTextField
-                  variant="outlined"
-                  fullWidth
-                  type="email"
-                  placeholder="aries@gmail.com"
-                  {...register('email', {
-                    required: 'You need to provide an email',
-                  })}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
-                />
-              </div>
-              <div>
-                <CustomTextField
-                  type="password"
-                  placeholder="password"
-                  {...register('password', {
-                    required: 'You need to provide password',
-                  })}
-                  error={!!errors.password}
-                  helperText={errors.password?.message}
                 />
               </div>
               <div className="auth-btn-container">
