@@ -16,5 +16,20 @@ export  const authOptions:AuthOptions = {
             clientId: process.env.GITHUB_ID as string,
             clientSecret: process.env.GITHUB_SECRET as string,
         })
-    ]
+    ],
+    callbacks:{
+        async signIn({ user, account, profile, email, credentials }) {
+            return true
+          },
+        async redirect({ url, baseUrl }) {
+            const newUrl = baseUrl + '/signup';
+            return newUrl
+          },
+        async session({ session, user, token }) {
+            return session
+          },
+        async jwt({ token, user, account, profile, isNewUser }) {
+            return token
+        },
+    }
 }
