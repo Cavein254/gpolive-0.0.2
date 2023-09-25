@@ -1,63 +1,17 @@
 'use client';
 
-import { Box, Button, TextField, Typography, styled } from '@mui/material';
-import { signIn } from 'next-auth/react';
+import { Box, Button, Typography } from '@mui/material';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 import './styles.css';
 
-const CustomTextField = styled(TextField)({
-  fontFamily: 'Lato',
-  fontWeight: 400,
-  fontSize: '1.2rem',
-  marginBottom: '1rem',
-  width: '100%',
-  '&:active': {
-    border: 'black',
-  },
-  '&.Mui-active': {
-    border: 'none',
-  },
-});
-
-type FormValues = {
-  firstName: string,
-  lastName: string,  
-  email: string;
-  password: string;
-};
 const SignUp = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>({
-    defaultValues: {
-        firstName:'',
-        lastName:'',
-        email: '',
-        password: '',
-    },
-  });
-  const [error, setError] = useState('');
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    signIn('credentials', {
-      email: data.email,
-      password: data.password,
-      redirect: false,
-    })
-      .then((result: any) => {
-        if (result.error) {
-          setError('Invalid email or password');
-          return;
-        }
-        window.location.replace('/dashboard');
-      })
-      .catch((e: any) => console.log(e));
-  };
+  const [quote, setQuote] = useState({});
+  const {data: session} = useSession();
+  console.log({session})
+  console.log(session?.user?.image)
   return (
     <Box className="auth">
       <Box
@@ -74,7 +28,7 @@ const SignUp = () => {
             height={400}
             priority={true}
             alt="login"
-            src="https://images.unsplash.com/photo-1578909196400-59f8f8156a05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
+            src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&h=700&q=80"
             className="auth-img"
           />
         </Box>
@@ -88,72 +42,45 @@ const SignUp = () => {
                 fontSize: '1.8rem',
               }}
             >
-              Great To Have You Back
+              Welcome on Board
             </Typography>
           </Box>
-          <div>
-            {error && (
-              <Typography
-                variant="h4"
-                sx={{
-                  fontFamily: 'Poppins',
-                  fontWeight: 400,
-                  color: '#fff',
-                  padding: '1rem',
-                  backgroundColor: '#F25433',
-                  borderRadius: '5px',
-                  fontSize: '0.8rem',
-                  textAlign: 'center',
-                  marginBottom: '1rem',
-                }}
-              >
-                {JSON.stringify(error)}
-              </Typography>
-            )}
-          </div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-            <div>
-                <CustomTextField
-                  variant="outlined"
-                  fullWidth
-                  type="text"
-                  placeholder="First Name"
-                  {...register('firstName', {
-                    required: 'You need to provide a first name',
-                  })}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
+          <form>
+             {session ? 
+             (
+              <Box>
+                <Box className="container-user-img">
+                <Image
+                  width={150}
+                  height={150}
+                  priority={true}
+                  alt="user image"
+                  src={session.user.image}
+                  className="user-img"
                 />
-              </div>
-              <div>
-                <CustomTextField
-                  variant="outlined"
-                  fullWidth
-                  type="text"
-                  placeholder="last Name"
-                  {...register('lastName', {
-                    required: 'You need to last name',
-                  })}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
-                />
-              </div>
-              <div className="auth-btn-container">
-                <Button variant="contained" type="submit">
-                  Login <BsFillArrowRightCircleFill className="auth-btn-icon" />
-                </Button>
-                <Button variant="contained" type="submit" onClick={() => signIn('google')}>
-                  Google <BsFillArrowRightCircleFill className="auth-btn-icon" />
-                </Button>
-              </div>
-            </div>
-            <div>
-              <p>
-                Don't have an account? <Link href="/user/signup">Register</Link>
-              </p>
-            </div>
+                </Box>
+                <Box className="container-user-text">
+                  <Typography variant='h4'>Welcome {session.user.name}!</Typography>
+                </Box>
+              
+            </Box>
+             ): " "
+             }
+             <Box>
+              <Typography sx={{
+                  fontFamily:"Dancing Script"
+                }}></Typography>
+             </Box>
+             <Box>
+              <Link href='/dashboard'>
+              <Button>
+                Forward
+              </Button>
+              </Link>
+              
+             </Box>
           </form>
+
         </Box>
       </Box>
     </Box>
