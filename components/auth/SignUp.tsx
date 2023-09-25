@@ -1,20 +1,14 @@
 'use client';
 
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useState } from 'react';
 import './styles.css';
 
 const SignUp = () => {
-  const [quote, setQuote] = useState('');
-  useEffect(() => {
-    const quote = fetch("https://zenquotes.io/api/random")
-                  .then(res => res.json())
-                  .then(data => setQuote(data))
-    console.log({quote})
-  },[])
-  console.log("here comes the session")
+  const [quote, setQuote] = useState({});
   const {data: session} = useSession();
   console.log({session})
   console.log(session?.user?.image)
@@ -72,7 +66,21 @@ const SignUp = () => {
             </Box>
              ): " "
              }
+             <Box>
+              <Typography sx={{
+                  fontFamily:"Dancing Script"
+                }}></Typography>
+             </Box>
+             <Box>
+              <Link href='/dashboard'>
+              <Button>
+                Forward
+              </Button>
+              </Link>
+              
+             </Box>
           </form>
+
         </Box>
       </Box>
     </Box>
