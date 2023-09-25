@@ -119,8 +119,11 @@ const SignIn = () => {
                   className="google-img"
           />
                 </Box>
-                <Button variant="contained" onClick={()=> signIn()}>
+                <Button variant="contained" onClick={()=> signIn("google")}>
                   SignIn with Google
+                </Button>
+                <Button variant="contained" onClick={()=> signIn("github")}>
+                  SignIn with github
                 </Button>
               </Box>
             </div>
