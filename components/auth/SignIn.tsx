@@ -119,11 +119,8 @@ const SignIn = () => {
                   className="google-img"
           />
                 </Box>
-                <Button variant="contained" onClick={()=> signIn("google")}>
+                <Button variant="contained" onClick={()=> signIn("google", { callbackUrl: '/signup' })}>
                   SignIn with Google
-                </Button>
-                <Button variant="contained" onClick={()=> signIn("github")}>
-                  SignIn with github
                 </Button>
               </Box>
             </div>
