@@ -42,10 +42,15 @@ const SignUp = () => {
     },
   });
   const [error, setError] = useState('');
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    axios.post('/api/auth/signup',data)
-    .then(res => redirect('/signin'))
-    .catch(err => setError(err))
+  const [ServerResponse,setServerResponse] = useState('')
+  const onSubmit: SubmitHandler<FormValues> = async(data) => {
+    const {data:responses} = await axios.post('/api/auth/signup',data);
+    const {status} = responses;
+    if(status !== 'success') {
+      setError("Failed to Create User")
+      return;
+    }
+    redirect('signin')
   };
   return (
     <Box className="auth">
