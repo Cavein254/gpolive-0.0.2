@@ -24,7 +24,7 @@ export  const authOptions:AuthOptions = {
             return true
           },
         async redirect({ url, baseUrl }) {
-            const newUrl = baseUrl + '/signup';
+            const newUrl = baseUrl + '/dashboard';
             return newUrl
           },
         async session({ session, user, token }) {
