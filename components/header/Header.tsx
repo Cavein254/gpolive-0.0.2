@@ -75,7 +75,7 @@ const Header = () => {
           </Link>
           </Box>
           <Box>
-          <Link href="/register" className="header-link">
+          <Link href="/signup" className="header-link">
             <StyledSignUp variant="contained">Sign Up</StyledSignUp>
           </Link>
           </Box>
