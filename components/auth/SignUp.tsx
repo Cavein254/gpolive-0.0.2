@@ -1,8 +1,10 @@
 'use client';
 
 import { Box, Button, TextField, Typography, styled } from '@mui/material';
+import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
@@ -23,8 +25,7 @@ const CustomTextField = styled(TextField)({
 });
 
 type FormValues = {
-  firstName: string,
-  lastName: string,  
+  username: string;
   email: string;
   password: string;
 };
@@ -35,15 +36,23 @@ const SignUp = () => {
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
-        firstName:'',
-        lastName:'',
+        username:'',
         email: '',
         password: '',
     },
   });
   const [error, setError] = useState('');
-  const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data)
+  const [ServerResponse,setServerResponse] = useState('')
+  const router = useRouter()
+
+  const onSubmit: SubmitHandler<FormValues> = async(data) => {
+    const {data:responses} = await axios.post('/api/auth/signup',data);
+    const {status} = responses;
+    if(status !== 'success') {
+      setError("Failed to Create User")
+      return;
+    }
+    router.push('/signin')
   };
   return (
     <Box className="auth">
@@ -105,25 +114,12 @@ const SignUp = () => {
                   variant="outlined"
                   fullWidth
                   type="text"
-                  placeholder="First Name"
-                  {...register('firstName', {
-                    required: 'You need to provide a first name',
+                  placeholder="User Name"
+                  {...register('username', {
+                    required: 'You need to provide a user name',
                   })}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
-                />
-              </div>
-              <div>
-                <CustomTextField
-                  variant="outlined"
-                  fullWidth
-                  type="text"
-                  placeholder="lastname"
-                  {...register('lastName', {
-                    required: 'You need to last name',
-                  })}
-                  error={!!errors.email}
-                  helperText={errors.email?.message}
+                  error={!!errors.username}
+                  helperText={errors.username?.message}
                 />
               </div>
               <div>
@@ -152,7 +148,7 @@ const SignUp = () => {
               </div>
               <div className="auth-btn-container">
                 <Button variant="contained" type="submit">
-                  Login <BsFillArrowRightCircleFill className="auth-btn-icon" />
+                  Register <BsFillArrowRightCircleFill className="auth-btn-icon" />
                 </Button>
               </div>
             </div>
