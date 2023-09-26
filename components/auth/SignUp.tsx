@@ -4,7 +4,7 @@ import { Box, Button, TextField, Typography, styled } from '@mui/material';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
@@ -43,6 +43,8 @@ const SignUp = () => {
   });
   const [error, setError] = useState('');
   const [ServerResponse,setServerResponse] = useState('')
+  const router = useRouter()
+
   const onSubmit: SubmitHandler<FormValues> = async(data) => {
     const {data:responses} = await axios.post('/api/auth/signup',data);
     const {status} = responses;
@@ -50,7 +52,7 @@ const SignUp = () => {
       setError("Failed to Create User")
       return;
     }
-    redirect('signin')
+    router.push('/signin')
   };
   return (
     <Box className="auth">
