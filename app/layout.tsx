@@ -23,7 +23,7 @@ const pathName = usePathname()
     <html lang="en">
       <body>
         <Providers>
-        {pathName === '/signin'|| pathName==='/signup'?'':<Header />}
+        {pathName === '/signin'|| pathName==='/admin'|| pathName==='/signup'?'':<Header />}
           {children}
         </Providers>
         </body>

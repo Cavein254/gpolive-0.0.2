@@ -1,8 +1,8 @@
-import AdminPage from '../../admin'
+import Header from "@/components/admin/header/Header"
 const page = () => {
   return (
     <div>
-        <AdminPage />
+        <Header />
     </div>
   )
 }
