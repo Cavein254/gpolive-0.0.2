@@ -1,9 +1,38 @@
 import { tokens } from '@/admin/theme';
+import BarChartOutlineIcon from '@mui/icons-material/BarChartOutlined';
+import CalendarTodayOutlineIcon from '@mui/icons-material/CalendarTodayOutlined';
+import ContactsOutlineIcon from '@mui/icons-material/ContactsOutlined';
+import HomeOutlineIcon from '@mui/icons-material/HomeOutlined';
+import MapOutlineIcon from '@mui/icons-material/MapOutlined';
 import MenuOutlineIcon from '@mui/icons-material/MenuOutlined';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutlined';
+import PieChartOutlineIcon from '@mui/icons-material/PieChartOutlined';
+import ReceiptOutlineIcon from '@mui/icons-material/ReceiptOutlined';
+import TimelineOutlineIcon from '@mui/icons-material/TimelineOutlined';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
-import { Menu, Sidebar, sidebarClasses } from 'react-pro-sidebar';
+import { Menu, MenuItem, Sidebar, sidebarClasses } from 'react-pro-sidebar';
+
+const Item = ({ title, href, icon, selected, setSelected }) => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
+  return (
+    <MenuItem
+      active={selected === title}
+      style={{ color: colors.grey[100] }}
+      onClick={() => setSelected(title)}
+      icon={icon}
+    >
+      <Link href={href}>
+        <Typography variant="h6">{title}</Typography>
+      </Link>
+    </MenuItem>
+  );
+};
+
 const SideBarItem = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -62,7 +91,92 @@ const SideBarItem = () => {
               </Box>
             </Box>
           )}
-          <Box paddingLeft={isCollapsed ? undefined : '10%'}></Box>
+          <Box paddingLeft={isCollapsed ? undefined : '10%'}>
+            <Item
+              title="Dashboard"
+              href="admin/"
+              icon={<HomeOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Manage Team"
+              href="admin/team"
+              icon={<PeopleOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Contacts"
+              href="admin/contacts"
+              icon={<ContactsOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Invoices"
+              href="admin/invoice"
+              icon={<ReceiptOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Profile Form"
+              href="admin/form"
+              icon={<PersonOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Calendar"
+              href="admin/calendar"
+              icon={<CalendarTodayOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="BarChart"
+              href="admin/bar"
+              icon={<BarChartOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="PieChart"
+              href="admin/pie"
+              icon={<PieChartOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Line Chart"
+              href="admin/line"
+              icon={<TimelineOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Geograpy"
+              href="admin/geo"
+              icon={<MapOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Dashboard"
+              href="admin/"
+              icon={<HomeOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Dashboard"
+              href="admin/"
+              icon={<HomeOutlineIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+          </Box>
         </Menu>
       </Sidebar>
     </Box>
