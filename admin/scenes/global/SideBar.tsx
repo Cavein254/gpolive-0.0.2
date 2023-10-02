@@ -99,6 +99,13 @@ const SideBarItem = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: '15px 0 0 20px' }}
+            >
+              Data
+            </Typography>
             <Item
               title="Manage Team"
               href="admin/team"
@@ -120,6 +127,13 @@ const SideBarItem = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: '15px 0 0 20px' }}
+            >
+              Pages
+            </Typography>
             <Item
               title="Profile Form"
               href="admin/form"
@@ -127,6 +141,13 @@ const SideBarItem = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: '15px 0 0 20px' }}
+            >
+              Charts
+            </Typography>
             <Item
               title="Calendar"
               href="admin/calendar"
@@ -159,20 +180,6 @@ const SideBarItem = () => {
               title="Geograpy"
               href="admin/geo"
               icon={<MapOutlineIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Dashboard"
-              href="admin/"
-              icon={<HomeOutlineIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Dashboard"
-              href="admin/"
-              icon={<HomeOutlineIcon />}
               selected={selected}
               setSelected={setSelected}
             />
